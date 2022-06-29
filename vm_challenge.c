@@ -4,7 +4,7 @@
 
 unsigned long long secret_key(unsigned long long n);
 
-int main (int argc, char** argv) {
+int main(int argc, char** argv) {
 
 	char* endl;
 
