@@ -22,6 +22,6 @@ Compling tigress output file with GCC and Stripping Binary
 gcc vm_chal.c -o vm_chal.bin -fno-stack-protector -z execstack -no-pie && strip vm_chal.c
 ```
 
-###Note:
+### Note:
 
 This challenge was compiled using tigress version 3.3.2 and GCC version 9.4.0
