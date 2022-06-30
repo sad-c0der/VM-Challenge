@@ -25,3 +25,9 @@ gcc vm_chal.c -o vm_chal.bin -fno-stack-protector -z execstack -no-pie && strip 
 ### Note:
 
 This challenge was compiled using tigress version 3.3.2 and GCC version 9.4.0
+
+I solved this challenge using Automated Analysis Through Symbolic Execution, below is the resource I took inspiration from
+
+https://github.com/mrphrazer/r2con2021_deobfuscation
+
+Tim Blazytko has been a huge help during my endeavour into Symbolic Execution and has released invaluable resources to help others to better understand the true power of Symbolic Execution and how helpful it is with Binary Obfuscation.
