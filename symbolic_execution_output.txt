@@ -1,0 +1,48 @@
+0x66: PUSHLOCALVAR (Push Local Variable To Stack)
+0x26: POPTOVAR: (Assign Value To Local Variable)
+
+var_X = 0
+
+0x66: PUSHLOCALVAR (Push Local Variable To Stack)
+0x26: POPTOVAR: (Assign Value To Local Variable)
+
+var_Y = 0
+
+0x51: PUSH: @64[0x1337DEADBEEF]
+0x26: POPTOVAR: (Assign Value To Local Variable)
+0x30: PUSHFROMVAR (Load Integer From Local Variable And Push To Stack)
+
+var_X = 0x1337DEADBEEF
+
+0xE:  POPARGTOVAR @64[0xBADC1ED6EDD6501E]
+0x30: PUSHFROMVAR (Load Integer From Local Variable And Push To Stack)
+
+var_Y = 0xBADC1ED6EDD6501E
+
+0x80: XOR
+
+var_Z = var_X ^ var_Y
+
+0x26: POPTOVAR: (Assign Value To Local Variable)
+0x30: PUSHFROMVAR (Load Integer From Local Variable And Push To Stack)
+0xF1: CMPE: @32[0xBADC0DE1337BEEF1]
+0xD5: JE: @32[0xD9]
+
+if (var_Z == 0xBADC0DE1337BEEF1):
+    0x26: POPTOVAR: (Assign Value To Local Variable)
+    0x30: PUSHFROMVAR (Load Integer From Local Variable And Push To Stack)
+    0x26: POPTOVAR: (Assign Value To Local Variable)
+    0x51: PUSH: @64[0xBADC0DE1337BEEF1]
+    0x51: PUSH: 0x185100000004
+    0x26: POPTOVAR: (Assign Value To Local Variable)
+    0x30: PUSHFROMVAR (Load Integer From Local Variable And Push To Stack)
+    0xDD: VM_EXIT -> Return Value: @64[0xBADC0DE1337BEEF1]
+else:
+    0x51: PUSH: 0xBADC0DE100000000
+    0x66: PUSHLOCALVAR (Push Local Variable To Stack)
+    0x26: POPTOVAR: (Assign Value To Local Variable)
+    0x51: PUSH: @64[0xFFFFFFFFFFFFFFFF]
+    0x26: POPTOVAR: (Assign Value To Local Variable)
+    0x30: PUSHFROMVAR (Load Integer From Local Variable And Push To Stack)
+    0xDD: VM_EXIT -> Return Value: @64[0xFFFFFFFFFFFFFFFF]
+    VM return value: 0xFFFFFFFFFFFFFFFF
